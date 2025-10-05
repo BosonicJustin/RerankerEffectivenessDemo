@@ -1,0 +1,4 @@
+trained_reranker/**/*.pt filter=lfs diff=lfs merge=lfs -text
+trained_reranker/**/*.pth filter=lfs diff=lfs merge=lfs -text
+trained_reranker/**/*.bin filter=lfs diff=lfs merge=lfs -text
+trained_reranker/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
