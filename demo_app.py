@@ -70,10 +70,10 @@ with st.expander("💡 Click to see example queries from the dataset", expanded=
     # Load actual questions from test dataset and randomly select
     test_dataset_for_examples = load_from_disk("./test_dataset")
 
-    # Generate random sample (cache the seed so examples stay consistent during session)
+    # Generate random sample (different each time the app restarts)
     if "example_indices" not in st.session_state:
         import random
-        random.seed(42)  # Fixed seed for reproducibility within session
+        # No seed = truly random selection each time the app loads
         st.session_state.example_indices = random.sample(range(len(test_dataset_for_examples)), min(20, len(test_dataset_for_examples)))
 
     example_questions = [test_dataset_for_examples[i]["question"] for i in st.session_state.example_indices]
