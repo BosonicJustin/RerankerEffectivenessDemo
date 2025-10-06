@@ -67,15 +67,16 @@ st.sidebar.markdown("- **Right (Encoder + Reranker)**: Retrieve top-100 with enc
 with st.expander("💡 Click to see example queries from the dataset", expanded=False):
     st.markdown("**Try these example questions from the GooAQ dataset:**")
 
-    # Get some example questions from the dataset
-    example_questions = [
-        corpus[i] if i < len(corpus) else test_dataset[i]["question"]
-        for i in range(min(10, len(corpus)))
-    ]
-
-    # Load actual questions from test dataset
+    # Load actual questions from test dataset and randomly select
     test_dataset_for_examples = load_from_disk("./test_dataset")
-    example_questions = [test_dataset_for_examples[i]["question"] for i in range(min(20, len(test_dataset_for_examples)))]
+
+    # Generate random sample (cache the seed so examples stay consistent during session)
+    if "example_indices" not in st.session_state:
+        import random
+        random.seed(42)  # Fixed seed for reproducibility within session
+        st.session_state.example_indices = random.sample(range(len(test_dataset_for_examples)), min(20, len(test_dataset_for_examples)))
+
+    example_questions = [test_dataset_for_examples[i]["question"] for i in st.session_state.example_indices]
 
     for i, example_q in enumerate(example_questions):
         if st.button(f"🔍 {example_q}", key=f"example_btn_{i}"):
