@@ -1,0 +1,50 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "pair",
+  "dataset_name": "gooaq",
+  "dataset_size": 915871810,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/sentence-transformers/gooaq@b089f728748a068b7bc5234e5bcf5b25e3c8279c/pair/train-00000-of-00002.parquet": {
+      "num_bytes": 306606760,
+      "checksum": null
+    },
+    "hf://datasets/sentence-transformers/gooaq@b089f728748a068b7bc5234e5bcf5b25e3c8279c/pair/train-00001-of-00002.parquet": {
+      "num_bytes": 306642172,
+      "checksum": null
+    }
+  },
+  "download_size": 613248932,
+  "features": {
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 1529120742,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 915871810,
+      "num_examples": 3012496,
+      "shard_lengths": [
+        1645248,
+        1367248
+      ],
+      "dataset_name": "gooaq"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
